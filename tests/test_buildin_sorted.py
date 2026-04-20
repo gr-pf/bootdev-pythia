@@ -1,6 +1,8 @@
 from model.algos.buildin_sorted import buildin_sorted
 
 
-def test_buildin_sort(input_expected):
+def test_buildin_sorted(input_expected):
     input_list, expected_list = input_expected
-    assert buildin_sorted(input_list) == expected_list
+    result_list = buildin_sorted(input_list)
+    assert result_list == expected_list
+    assert input_list is not result_list
