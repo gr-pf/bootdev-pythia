@@ -3,24 +3,29 @@
 
 
 def merge_sort(input_list: list):
-    if len(input_list) < 2:
-        return input_list
+    copy_list = input_list.copy()
 
-    middle = len(input_list) // 2
+    def logic(input_list: list) -> list:
+        if len(input_list) < 2:
+            return input_list
 
-    left_side = merge_sort(input_list[:middle])
-    right_side = merge_sort(input_list[middle:])
+        middle: int = len(input_list) // 2
 
-    return merge(left_side, right_side)
+        left_side: list = logic(input_list[:middle])
+        right_side: list = logic(input_list[middle:])
+
+        return merge(left_side, right_side)
+
+    return logic(copy_list)
 
 
-def merge(left: list, right: list):
+def merge(left: list, right: list) -> list:
     if len(left) == 0:
         return right
     if len(right) == 0:
         return left
 
-    new_list = []
+    new_list: list = []
     l: int = 0  # noqa: E741
     r: int = 0
 
