@@ -29,7 +29,7 @@ Il est développé dans le cadre du programme d'apprentissage du code de boot.de
 """
 
     home_choices = """
-0. Quit
+Q. Quitter
 1. Algo de Tri
 2. A venir
 """
@@ -45,7 +45,7 @@ Quel est votre choix ?
     while True:
         user_input = console.input(home_input)
         match user_input:
-            case "0":
+            case "Q" | "q":
                 console.print("Vous allez quitter Pythia...")
                 time.sleep(1)
                 sys.exit()
