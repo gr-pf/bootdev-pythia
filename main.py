@@ -2,8 +2,16 @@ import os
 import sys
 import time
 
+from view.page00_home import page_home
+
 
 def main():
+    check_terminal()
+
+    page_home()
+
+
+def check_terminal():
     columns, lines = os.get_terminal_size()
 
     if columns < 80:
