@@ -1,12 +1,10 @@
 import os
-import sys
-import time
 
 from rich.console import Console
 from rich.panel import Panel
 from rich import box
 
-from view.page01_tri import page_tri
+from shared.types import PageResult
 
 
 def page_home():
@@ -44,27 +42,9 @@ Quel est votre choix ?
 
     while True:
         user_input = console.input(home_input)
-        match user_input:
-            case "Q" | "q":
-                console.print("Vous allez quitter Pythia...")
-                time.sleep(1)
-                sys.exit()
-
-            case "1":
-                console.print("Vous avez choisi : 1. Algo de Tri")
-                time.sleep(0.5)
-                return page_tri()
-
-            case "2":
-                console.print("Vous avez choisi : 2. A venir")
-                time.sleep(0.5)
-                console.print(
-                    "Cette partie n'a pas encore été implémentée. Veuillez faire un autre choix."
-                )
+        match user_input.lower():
+            case "q" | "1" | "2":
+                return PageResult("home", user_input.lower())
 
             case _:
                 console.print("Commande invalide. Veuillez faire un autre choix.")
-
-
-if __name__ == "__main__":
-    page_home()
