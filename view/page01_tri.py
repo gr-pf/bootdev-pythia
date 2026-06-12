@@ -1,6 +1,4 @@
 import os
-import sys
-import time
 
 from rich.console import Console
 from rich.panel import Panel
@@ -8,10 +6,10 @@ from rich import box
 from rich.table import Table
 
 from model.algos.liste_algos import list_aglos
-from view.page00_home import page_home
+from shared.types import PageResult
 
 
-def page_tri():
+def page_tri() -> PageResult:
     os.system("cls||clear")
 
     console = Console()
@@ -28,7 +26,7 @@ Quel est votre choix ?
     table.add_column("Nom", style="magenta")
 
     for algo in list_aglos:
-        table.add_row(algo[0], algo[1])
+        table.add_row(algo.id, algo.name)
 
     console.print(Panel(tri_main_panel, style="color(12)", box=box.DOUBLE_EDGE))
     console.print(table)
@@ -36,42 +34,18 @@ Quel est votre choix ?
 
     while True:
         user_input = console.input(tri_input)
-        match user_input:
-            case "Q" | "q":
-                console.print("Vous allez quitter Pythia...")
-                time.sleep(1)
-                sys.exit()
+        clean_input = user_input.lower().strip().split()
 
-            case "H" | "h":
-                return page_home()
+        if clean_input[0] == "q" or clean_input[0] == "h":
+            return PageResult("tri", clean_input[0], None)
 
-            case "1":
-                return
+        valid_answer = [algo.id for algo in list_aglos]
+        print(valid_answer)
+        print(clean_input)
+        if len(clean_input) != 0 and all(
+            value in valid_answer for value in clean_input
+        ):
+            return PageResult("tri", "1", clean_input)
 
-            case "2":
-                return
-
-            case "3":
-                return
-
-            case "4":
-                return
-
-            case "5":
-                return
-
-            case "6":
-                return
-
-            case "7":
-                return
-
-            case "8":
-                return
-
-            case _:
-                console.print("Commande invalide. Veuillez faire un autre choix.")
-
-
-if __name__ == "__main__":
-    page_tri()
+        else:
+            console.print("Commande invalide. Veuillez faire un autre choix.")
