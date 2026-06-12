@@ -2,13 +2,13 @@ import os
 import sys
 import time
 
-from view.page00_home import page_home
+from controller.controller import run
 
 
 def main():
     check_terminal()
 
-    page_home()
+    run()
 
 
 def check_terminal():
