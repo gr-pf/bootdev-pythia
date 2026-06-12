@@ -7,7 +7,7 @@ from rich import box
 from shared.types import PageResult
 
 
-def page_home():
+def page_home() -> PageResult:
     os.system("cls||clear")
 
     console = Console()
