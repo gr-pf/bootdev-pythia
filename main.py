@@ -30,7 +30,7 @@ Il faut un terminal d'au moins 80 colonnes pour un affichage correct.
             prefix = "Vous devez saisir Yes (y) ou No (n) - "
 
     print("Le programme va démarrer...")
-    time.sleep(1)
+    time.sleep(0.1)
     os.system("cls||clear")
 
 
