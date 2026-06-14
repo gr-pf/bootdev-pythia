@@ -15,10 +15,10 @@ def page_tri() -> PageResult:
     console = Console()
     table = Table()
 
-    tri_main_panel = """
+    text_main_panel = """
     Algorithmes de tri
 """
-    tri_input = """
+    text_input = """
 Quel est votre choix ?
 >>> """
 
@@ -28,20 +28,18 @@ Quel est votre choix ?
     for algo in list_aglos:
         table.add_row(algo.id, algo.name)
 
-    console.print(Panel(tri_main_panel, style="color(12)", box=box.DOUBLE_EDGE))
+    console.print(Panel(text_main_panel, style="color(12)", box=box.DOUBLE_EDGE))
     console.print(table)
     console.print("Veuillez choisir un aglorithme :")
 
     while True:
-        user_input = console.input(tri_input)
+        user_input = console.input(text_input)
         clean_input = user_input.lower().strip().split()
 
         if clean_input[0] == "q" or clean_input[0] == "h":
             return PageResult("tri", clean_input[0], None)
 
         valid_answer = [algo.id for algo in list_aglos]
-        print(valid_answer)
-        print(clean_input)
         if len(clean_input) != 0 and all(
             value in valid_answer for value in clean_input
         ):
