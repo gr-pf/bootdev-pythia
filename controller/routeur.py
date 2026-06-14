@@ -3,12 +3,14 @@ import sys
 from shared.types import PageResult
 from view.page00_home import page_home
 from view.page01_tri import page_tri
+from view.page02_tri_iter import page_tri_iter
 from view.page99_tbd import page_tbd
 
 routeur = {
     "return_home": {"h": page_home},
     "home": {"1": page_tri, "2": page_tbd},
-    "tri": {"1": page_tbd},
+    "tri": {"1": page_tri_iter},
+    "tri_iter": {"1": page_tbd},
 }
 
 
