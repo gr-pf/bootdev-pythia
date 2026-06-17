@@ -27,6 +27,8 @@ Veuillez choisir la taille de la liste à trier :
 
     while not size:
         user_input_size = console.input(text_input_size)
+        if user_input_size[0] == "q" or user_input_size[0] == "h":
+            return PageResult("tri_iter", user_input_size[0], None)
         try:
             int(user_input_size)
             if int(user_input_size) <= 10000:
@@ -36,6 +38,8 @@ Veuillez choisir la taille de la liste à trier :
 
     while not iterations:
         user_input_iter = console.input(text_input_iter)
+        if user_input_iter[0] == "q" or user_input_iter[0] == "h":
+            return PageResult("tri_iter", user_input_iter[0], None)
         try:
             int(user_input_iter)
             if int(user_input_iter) <= 20:
