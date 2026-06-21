@@ -14,7 +14,7 @@ def get_sorting_time_ms(size: int, algo: Callable[list[int]]) -> int:
     start = time.time_ns()
     algo(unsorted_list)
     end = time.time_ns()
-    return (end - start) / 1000000
+    return (end - start) / 1000000  # return in milliseconds
 
 
 def benchmark(algos: list, iter: int, size: int) -> list:
