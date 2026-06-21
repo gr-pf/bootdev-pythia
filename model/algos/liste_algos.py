@@ -9,13 +9,15 @@ from model.algos.selection_sort import selection_sort
 from model.algos.quick_sort import quick_sort
 
 AlgoType = namedtuple("AlgoType", ["id", "name", "function"])
-list_algos = [
-    AlgoType("1", "Buildin sort", buildin_sort),
-    AlgoType("2", "Buildin sorted", buildin_sorted),
-    AlgoType("3", "Bubble sort", bubble_sort_raw),
-    AlgoType("4", "Bubble sort optimisée", bubble_sort_optimised),
-    AlgoType("5", "Insertion sort", insertion_sort),
-    AlgoType("6", "Merge sort", merge_sort),
-    AlgoType("7", "Selection sort", selection_sort),
-    AlgoType("8", "Quick sort", quick_sort),
-]
+list_algos = {
+    "buildin_sort": AlgoType("1", "Buildin sort", buildin_sort),
+    "buildin_sorted": AlgoType("2", "Buildin sorted", buildin_sorted),
+    "bubble_sort_raw": AlgoType("3", "Bubble sort", bubble_sort_raw),
+    "bubble_sort_optimised": AlgoType(
+        "4", "Bubble sort optimisée", bubble_sort_optimised
+    ),
+    "insertion_sort": AlgoType("5", "Insertion sort", insertion_sort),
+    "merge_sort": AlgoType("6", "Merge sort", merge_sort),
+    "selection_sort": AlgoType("7", "Selection sort", selection_sort),
+    "quick_sort": AlgoType("8", "Quick sort", quick_sort),
+}
