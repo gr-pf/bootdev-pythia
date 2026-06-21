@@ -13,9 +13,6 @@ def bubble_sort_raw(input_list: list):
     return copy_list
 
 
-print(bubble_sort_raw([4, 3, 2, 1, 0]))
-
-
 def bubble_sort_optimised(input_list: list):
     copy_list = input_list.copy()
 
