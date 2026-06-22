@@ -1,5 +1,7 @@
 import pytest
 
+from model.benchmark import TimesResult
+
 
 @pytest.fixture(
     params=[
@@ -23,4 +25,27 @@ import pytest
     ]
 )
 def input_expected(request):
+    return request.param
+
+
+@pytest.fixture(
+    params=[
+        pytest.param(
+            (("name", [1]), TimesResult("name", 1, 1, 1, 1, 0)), id="unique_value"
+        ),
+        pytest.param(
+            (("name", [1, 2, 3, 4, 5]), TimesResult("name", 3, 3, 1, 5, 2.5)),
+            id="basic_case",
+        ),
+        pytest.param(
+            (("name", [1, 4, 6, 8]), TimesResult("name", 4.75, 5, 1, 8, 8.92)),
+            id="even_number",
+        ),
+        pytest.param(
+            (("name", [3, 3, 3, 3]), TimesResult("name", 3, 3, 3, 3, 0)),
+            id="all_same",
+        ),
+    ]
+)
+def params_get_results(request):
     return request.param
